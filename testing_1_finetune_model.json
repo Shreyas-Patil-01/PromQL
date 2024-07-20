@@ -1,0 +1,181 @@
+{
+  "title": "test2",
+  "description": "",
+  "parameters": {
+    "groundingPromptConfig": {
+      "disabled": true,
+      "groundingConfig": {
+        "sources": [
+          {
+            "type": "VERTEX_AI_SEARCH"
+          }
+        ]
+      }
+    },
+    "stopSequences": [],
+    "temperature": 1,
+    "tokenLimits": 2048,
+    "topP": 1
+  },
+  "type": "chat",
+  "context": {
+    "parts": [
+      {
+        "text": ""
+      }
+    ]
+  },
+  "examples": [],
+  "messages": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "which kubernetes metric tracks the Percent of time the CPU spent in an idle state\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "kubernetes_cpu_idle"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "In the last hour, show me the amount of memory in use for the cluster target and oraganization id orgid\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "kubernetes_memory_usage{kube_cluster_name=\"target\", org_id=\"orgId\"}[1h]"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Sum of ram usage across all hosts:\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "node_memory_usage"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "show average cpu usage per host for \"target\" cluster and orgid organization averaged over 5 minutes\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "avg(node_cpu_usage{kube_cluster_name=\"target\", org_id=\"orgId\"})[5m]"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Show the minimum amount of memory used by the container across all hosts:\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "min by (system_container_name) (container_memory_usage{kube_cluster_name=\"target\", org_id=\"orgId\"})"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    }
+  ]
+}

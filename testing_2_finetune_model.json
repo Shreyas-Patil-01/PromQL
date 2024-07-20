@@ -1,0 +1,181 @@
+{
+  "title": "Testing1",
+  "description": "",
+  "parameters": {
+    "groundingPromptConfig": {
+      "disabled": true,
+      "groundingConfig": {
+        "sources": [
+          {
+            "type": "VERTEX_AI_SEARCH"
+          }
+        ]
+      }
+    },
+    "stopSequences": [],
+    "temperature": 1,
+    "tokenLimits": 2048,
+    "topP": 1
+  },
+  "type": "chat",
+  "context": {
+    "parts": [
+      {
+        "text": ""
+      }
+    ]
+  },
+  "examples": [],
+  "messages": [
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Get the average CPU usage across all instances:"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "avg by (kube_cluster_name) (avg_over_time(system_cpu_used{kube_cluster_name=\"target\", org_id=\"orgId\"}[5m]))"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Get the total HTTP requests in the last hour"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "sum by (host) (http_request{kube_cluster_name=\"target\", org_id=\"orgId\"} [1 hour])"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "give me the Average memory usage by instance:"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "avg_over_time(system_mem_used{kube_cluster_name=\"target\", org_id=\"orgId\"}[5m])"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "Rate of HTTP requests per second:"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "sum by (host) (rate(http_request{kube_cluster_name=\"target\", org_id=\"orgId\"}[1m]))"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "parts": [
+          {
+            "text": "CPU usage increase over the last 5 minutes:"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "delta(system_cpu_used{kube_cluster_name=\"target\", org_id=\"orgId\"}[5m])"
+          }
+        ]
+      },
+      "groundingMetadata": {
+        "citations": [],
+        "sources": [],
+        "references": []
+      },
+      "citationMetadata": {
+        "citations": [],
+        "sources": []
+      }
+    }
+  ]
+}
