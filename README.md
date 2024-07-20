@@ -13,7 +13,7 @@ This repository contains the code and resources for a machine learning model tha
 - [Examples](#examples)
 - [Results](#results)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Overview
 
@@ -42,12 +42,13 @@ This project provides a powerful tool for translating natural language queries i
 3. **Output**: Receive the generated PromQL query that you can use directly in Prometheus.
 
 ### Visual Representation
-![Project Workflow]([path/to/your/workflow_diagram.png](https://github.com/Shreyas-Patil-01/PromQL/blob/main/model_deployed_img.png))
+![Project Workflow](https://github.com/Shreyas-Patil-01/PromQL/blob/main/model_deployed_img.png)
+![Project Workflow](https://github.com/Shreyas-Patil-01/PromQL/blob/main/Fine_tuned_model_details.png)
 ![Project Workflow](https://github.com/Shreyas-Patil-01/PromQL/blob/main/output_video.mp4)
 
 This diagram illustrates the end-to-end process of converting a natural language query into PromQL using the fine-tuned model.
 
-### Example Use Cases
+### Examples
 - **Performance Monitoring**: Translate queries related to server performance into PromQL to monitor metrics.
 - **Alerting**: Generate PromQL queries to set up alerts based on specific conditions described in natural language.
 - **Reporting**: Convert user-friendly queries into PromQL for generating reports on system metrics.
@@ -75,6 +76,7 @@ To use this model, follow the steps below:
 2. Load the fine-tuned model.
 3. Input a natural language query.
 4. Receive the corresponding PromQL query as output.
+5. Access through its endpoint by requesting the model.
 
 ### Installation
 Clone this repository and install the required dependencies:
